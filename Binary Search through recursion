@@ -1,0 +1,28 @@
+//binary search through iterative method
+#include<bits/stdc++.h>
+using namespace std;
+int binarySearch(int arr[],int start,int end,int key,int n)
+{
+	if(start<=end)
+	{
+	
+	int mid=start+(end-start)/2;
+       if(arr[mid]==key)
+       return mid;
+       if(arr[mid]>key)
+       return binarySearch(arr,0,mid-1,key,n);
+       if(arr[mid]<key)
+        return binarySearch(arr,mid+1,end,key,n);
+    }
+    return -1;
+       
+	
+}
+int main()
+{
+	int arr[5]={33,43,53,63,73};
+	int key;
+	cout<<"enter the number to be searched ";
+	cin>>key;
+    cout<<endl<<"the index is "<<binarySearch(arr,0,4,key,5);
+}
